@@ -34,6 +34,4 @@ class ValidateMovieUpdateRequest extends FormRequest
     {
         $this->merge($this->all());
     }
-
-
 }

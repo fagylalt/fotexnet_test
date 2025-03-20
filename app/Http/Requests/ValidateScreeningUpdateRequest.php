@@ -29,6 +29,7 @@ class ValidateScreeningUpdateRequest extends FormRequest
             'movie_id' => 'sometimes|required|integer|exists:movies,id',
         ];
     }
+
     /**
      * Get the error messages for the defined validation rules.
      *
@@ -46,11 +47,12 @@ class ValidateScreeningUpdateRequest extends FormRequest
             'movie_id.exists' => 'The movie must exist.',
         ];
     }
+
     protected function failedValidation(Validator $validator): void
     {
         throw new ValidationException($validator, response()->json([
             'message' => 'Validation failed',
-            'errors' => $validator->errors()
+            'errors' => $validator->errors(),
         ], 422));
     }
 }

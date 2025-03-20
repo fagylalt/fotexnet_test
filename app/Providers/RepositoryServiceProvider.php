@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Repositories\ScreeningRepository;
-use Illuminate\Support\ServiceProvider;
 use App\Interfaces\IRepository;
 use App\Repositories\MovieRepository;
+use App\Repositories\ScreeningRepository;
+use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
 {

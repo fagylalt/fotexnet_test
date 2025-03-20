@@ -31,6 +31,7 @@ class ValidateMovieCreationRequest extends FormRequest
             'cover_art' => 'required|string|max:255',
         ];
     }
+
     /**
      * Get the error messages for the defined validation rules.
      *
@@ -51,11 +52,12 @@ class ValidateMovieCreationRequest extends FormRequest
             'cover_art.max' => 'The cover art URL must not exceed 255 characters.',
         ];
     }
+
     protected function failedValidation(Validator $validator)
     {
         throw new ValidationException($validator, response()->json([
             'message' => 'Validation failed',
-            'errors' => $validator->errors()
+            'errors' => $validator->errors(),
         ], 422));
     }
 }
