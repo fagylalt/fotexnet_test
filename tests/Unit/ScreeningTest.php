@@ -49,7 +49,7 @@ class ScreeningTest extends TestCase
 
         $response->assertStatus(200)
             ->assertJsonStructure([
-                '*' => ['id', 'date', 'available_seats', 'movie']
+                '*' => ['id', 'date', 'available_seats', 'movie'],
             ]);
     }
 
@@ -60,7 +60,7 @@ class ScreeningTest extends TestCase
         $response = $this->postJson('/api/screenings/create', [
             'date' => '2025-05-15 19:30:00',
             'available_seats' => 30,
-            'movie_id' => $movie->id
+            'movie_id' => $movie->id,
         ]);
 
         $response->assertStatus(200)
@@ -78,7 +78,7 @@ class ScreeningTest extends TestCase
         $response->assertStatus(200)
             ->assertJson([
                 'id' => $screening->id,
-                'available_seats' => $screening->available_seats
+                'available_seats' => $screening->available_seats,
             ]);
     }
 
@@ -88,7 +88,7 @@ class ScreeningTest extends TestCase
 
         $response = $this->postJson("/api/screenings/update/{$screening->id}", [
             'date' => '2025-05-16 20:00:00',
-            'available_seats' => 40
+            'available_seats' => 40,
         ]);
 
         $response->assertStatus(200)
@@ -96,7 +96,7 @@ class ScreeningTest extends TestCase
 
         $this->assertDatabaseHas('screenings', [
             'id' => $screening->id,
-            'available_seats' => 40
+            'available_seats' => 40,
         ]);
     }
 
@@ -109,6 +109,6 @@ class ScreeningTest extends TestCase
         $response->assertStatus(200)
             ->assertJson(['message' => 'Screening deleted successfully']);
 
-        $this->assertSoftDeleted('screenings', ['id' => $screening->id]);    }
-
+        $this->assertSoftDeleted('screenings', ['id' => $screening->id]);
+    }
 }

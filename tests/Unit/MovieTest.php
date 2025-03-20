@@ -38,7 +38,7 @@ class MovieTest extends TestCase
 
         $response->assertStatus(200)
             ->assertJsonStructure([
-                '*' => ['id', 'title', 'description', 'age_limit', 'language', 'cover_art']
+                '*' => ['id', 'title', 'description', 'age_limit', 'language', 'cover_art'],
             ]);
     }
 
@@ -49,7 +49,7 @@ class MovieTest extends TestCase
             'description' => 'A new movie description',
             'age_limit' => 16,
             'language' => 'English',
-            'cover_art' => 'https://via.placeholder.com/200x300.png/00aacc?text=movie+poster'
+            'cover_art' => 'https://via.placeholder.com/200x300.png/00aacc?text=movie+poster',
         ]);
 
         $response->assertStatus(200)
@@ -67,7 +67,7 @@ class MovieTest extends TestCase
         $response->assertStatus(200)
             ->assertJson([
                 'id' => $movie->id,
-                'title' => $movie->title
+                'title' => $movie->title,
             ]);
     }
 
@@ -80,7 +80,7 @@ class MovieTest extends TestCase
             'description' => 'Updated movie description',
             'age_limit' => 18,
             'language' => 'French',
-            'cover_art' => 'https://via.placeholder.com/200x300.png/003355?text=updated+poster'
+            'cover_art' => 'https://via.placeholder.com/200x300.png/003355?text=updated+poster',
         ]);
 
         $response->assertStatus(200)
