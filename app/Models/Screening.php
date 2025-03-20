@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Screening extends Model
@@ -23,14 +22,13 @@ class Screening extends Model
         'created_at',
         'updated_at',
         'deleted_at',
-        'movie_id'
+        'movie_id',
     ];
 
-    protected $table = "screenings";
+    protected $table = 'screenings';
 
     public function movie(): BelongsTo
     {
         return $this->belongsTo(Movie::class);
     }
-
 }

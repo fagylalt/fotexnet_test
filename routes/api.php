@@ -10,15 +10,15 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::prefix('/movies')->group(function (): void {
-    Route::get('/list', [    MovieController::class, 'index']);
+    Route::get('/list', [MovieController::class, 'index']);
     Route::get('/get/{id}', [MovieController::class, 'find']);
     Route::post('/create', [MovieController::class, 'store']);
     Route::post('/update/{id}', [MovieController::class, 'update']);
     Route::delete('/delete/{id}', [MovieController::class, 'destroy']);
 });
 
-Route::prefix("/screenings")->group(function (): void {
-    Route::get('/list', [    ScreeningController::class, 'index']);
+Route::prefix('/screenings')->group(function (): void {
+    Route::get('/list', [ScreeningController::class, 'index']);
     Route::get('/get/{id}', [ScreeningController::class, 'show']);
     Route::post('/create', [ScreeningController::class, 'store']);
     Route::post('/update/{id}', [ScreeningController::class, 'update']);

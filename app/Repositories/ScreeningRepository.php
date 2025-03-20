@@ -27,12 +27,14 @@ class ScreeningRepository implements IRepository
     {
         $screening = Screening::findOrFail($id);
         $screening->update($data);
+
         return $screening->fresh('movie');
     }
 
     public function delete(int $id): bool
     {
         $screening = Screening::findOrFail($id);
+
         return $screening->delete();
     }
 }

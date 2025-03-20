@@ -13,16 +13,11 @@ use OpenApi\Attributes as OA;
 #[OA\Tag(name: 'Screenings', description: 'API Endpoints for Screenings')]
 class ScreeningController extends Controller
 {
-
-
-    public function __construct(private readonly IRepository $screeningRepository)
-    {
-    }
+    public function __construct(private readonly IRepository $screeningRepository) {}
 
     /**
      * Display a listing of the resource.
      */
-
     #[OA\Get(
         path: '/screenings/list',
         operationId: 'all',
@@ -50,8 +45,7 @@ class ScreeningController extends Controller
                                 new OA\Property(property: 'cover_art', type: 'string', format: 'uri', example: 'https://via.placeholder.com/200x300.png/006600?text=movies+poster+nesciunt'),
                             ]
                         ),
-                    ]
-                    ,
+                    ],
                 )
             ),
             new OA\Response(
@@ -153,9 +147,8 @@ class ScreeningController extends Controller
                     type: 'integer',
                     example: 1
                 )
-            )
-        ]
-        ,
+            ),
+        ],
         tags: ['Screenings'],
         responses: [
             new OA\Response(
@@ -178,8 +171,7 @@ class ScreeningController extends Controller
                                 new OA\Property(property: 'cover_art', type: 'string', format: 'uri', example: 'https://via.placeholder.com/200x300.png/006600?text=movies+poster+nesciunt'),
                             ]
                         ),
-                    ]
-                    ,
+                    ],
                 )
             ),
             new OA\Response(
@@ -230,7 +222,7 @@ class ScreeningController extends Controller
                     type: 'integer',
                     example: 1
                 )
-            )
+            ),
         ],
         responses: [
             new OA\Response(
@@ -253,8 +245,7 @@ class ScreeningController extends Controller
                                 new OA\Property(property: 'cover_art', type: 'string', format: 'uri', example: 'https://via.placeholder.com/200x300.png/006600?text=movies+poster+nesciunt'),
                             ]
                         ),
-                    ]
-                    ,
+                    ],
                 )
             ),
             new OA\Response(
@@ -271,7 +262,6 @@ class ScreeningController extends Controller
     /**
      * Update the specified resource in storage.
      */
-
     public function update(ValidateScreeningUpdateRequest $request, string $id)
     {
         try {
@@ -298,7 +288,7 @@ class ScreeningController extends Controller
                     type: 'integer',
                     example: 1
                 )
-            )
+            ),
         ],
         responses: [
             new OA\Response(
@@ -335,7 +325,8 @@ class ScreeningController extends Controller
             if ($isDeleteSuccessful) {
                 return response()->json(['message' => 'Screening deleted successfully']);
             }
-            return response()->json( Response::HTTP_NO_CONTENT);
+
+            return response()->json(Response::HTTP_NO_CONTENT);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Error during screening deletion'], Response::HTTP_INTERNAL_SERVER_ERROR);
         }

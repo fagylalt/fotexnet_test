@@ -27,12 +27,14 @@ class MovieRepository implements IRepository
     {
         $movie = Movie::findOrFail($id);
         $movie->update($data);
+
         return $movie;
     }
 
     public function delete($id): bool
     {
         $movie = Movie::findOrFail($id);
+
         return $movie->delete();
 
     }
