@@ -21,9 +21,9 @@ class ScreeningRepository implements IRepository
     public function create(array $data): Screening
     {
         $screening = Screening::create($data);
+
         return $screening->load('movie');
     }
-
 
     public function update(int $id, array $data): Screening
     {
