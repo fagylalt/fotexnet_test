@@ -20,15 +20,17 @@ class ScreeningRepository implements IRepository
 
     public function create(array $data): Screening
     {
-        return Screening::with('movie')->create($data);
+        $screening = Screening::create($data);
+        return $screening->load('movie');
     }
+
 
     public function update(int $id, array $data): Screening
     {
         $screening = Screening::findOrFail($id);
         $screening->update($data);
 
-        return $screening->fresh('movie');
+        return Screening::with('movie')->findOrFail($id);
     }
 
     public function delete(int $id): bool

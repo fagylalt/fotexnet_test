@@ -10,6 +10,8 @@ A tesztet az alábbi módon tudod elindítani:
 3. Ezek után futtasd a ```docker compose build ``` parancsot, ami a docker/Dockerfile alapján elkészíti az image-t
 4. Futtasd a ```docker compose up``` parancsot, ami elindítja a konténert
 5. A konténerben futtass egy ```php artisan migrate:fresh --seed``` parancsot, ami létrehozza az adatbázist és a táblákat
+6. A teszteket a következő paranccsal tudod futtatni: ```php artisan test```
+
 
 A böngészőben a https://localhost címen fogod tudni elérni az alkalmazást, a swaggeres dokumentáció pedig a https://localhost/api/documentation címen érhető el.
 
